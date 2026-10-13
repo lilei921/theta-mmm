@@ -1,0 +1,75 @@
+industry: vlcc
+version: 1
+as_of: "2026-10-13"
+note: "静态指标字典，指标历史数据及实时行情需独立获取并核实"
+indicators:
+  - id: vlcc.orderbook_fleet_ratio
+    name: VLCC订单簿/现有船队比例
+    layer: L1
+    unit: percent
+    frequency: monthly
+    definition: 按VLCC船型统一DWT或艘数口径，明确在建交付期
+    mechanism: 未来交付压力 -> 有效船队增长 -> 运价中枢
+    lead_horizon: "未来2-3年供给参考，需考虑交付延期"
+    source: "Clarksons、船舶订单簿、船东公告（部分收费）"
+    limitations: "订单簿非净新增，需扣除拆船、延期、取消"
+  - id: vlcc.tonne_mile_demand
+    name: 全球VLCC原油吨海里需求
+    layer: L1
+    unit: tonne_miles
+    frequency: monthly
+    definition: 原油海运吨数乘以航运平均距离；按VLCC适用航线统计
+    mechanism: 运输总需求 -> 船舶工作量 -> 运价
+    lead_horizon: "供需同期或短期领先，待历史验证"
+    source: "Clarksons、Kpler、Vortexa等航运流向数据（通常收费）"
+    limitations: "不能用原油产量或海运吨数直接替代吨海里"
+  - id: vlcc.spot_availability
+    name: 即期可用船位与货盘
+    layer: L1
+    unit: vessels_and_cargoes
+    frequency: weekly
+    definition: 主要装港及航线可用船位、询盘/成交，并考虑航程和船舶资格
+    mechanism: 局部可用运力紧张 -> 航线TCE变动
+    lead_horizon: "通常为短期，须按航线验证"
+    source: "经纪商周报、船舶AIS与租船市场成交信息"
+    limitations: "船位能否成交、制裁合规、船况会扭曲表面供给"
+  - id: vlcc.td3c_tce
+    name: TD3C TCE（中东湾至中国）
+    layer: L2
+    unit: USD_per_day
+    frequency: daily
+    definition: Baltic Exchange公布航线等效期租收益，需核对使用的燃油与航速假设
+    mechanism: 即期运价 -> 船东实现收益
+    lead_horizon: "同步运价，领先财报"
+    source: "Baltic Exchange"
+    limitations: "单航线不是公司真实实现TCE；历史方法调整须处理"
+  - id: vlcc.td15_td22_tce
+    name: TD15/TD22 TCE（西非/美国湾至中国）
+    layer: L2
+    unit: USD_per_day
+    frequency: daily
+    definition: 跟踪不同原油来源及长航线，综合看VLCC市场
+    mechanism: 贸易流向与区域运力 -> 航线收益
+    lead_horizon: "同步运价"
+    source: "Baltic Exchange"
+    limitations: "不同航线不可未经权重处理简单平均"
+  - id: vlcc.secondhand_5yr
+    name: 五年船龄VLCC二手船价格
+    layer: L2
+    unit: USD
+    frequency: monthly
+    definition: 区分船龄、船型、环保配置与船价评估方法
+    mechanism: 运价周期预期 -> 船舶资产价值 -> NAV
+    lead_horizon: "预期性资产定价，并不必然领先现货运费"
+    source: "Clarksons、船舶经纪估值"
+    limitations: "成交稀疏、船况差异、估值滞后"
+  - id: vlcc.realized_tce
+    name: 上市公司实现TCE和营运天数
+    layer: L3
+    unit: USD_per_day
+    frequency: quarterly
+    definition: 按公司披露币种、即期/期租、船型和自有租入结构分拆
+    mechanism: 当期收入利润兑现
+    lead_horizon: "财报滞后指标"
+    source: "公司定期报告及业绩交流"
+    limitations: "不同船队/会计口径导致公司间不可直接比较"

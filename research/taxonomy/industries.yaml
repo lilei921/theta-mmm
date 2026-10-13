@@ -1,0 +1,37 @@
+version: 1
+as_of: "2026-10-13"
+description: "研究单元而非申万/GICS官方分类代码；path相对research/industries"
+model_ids:
+  - commodity-price
+  - processing-spread
+  - capacity-cycle
+  - order-capex
+  - adoption-tech
+  - pipeline-rnpv
+  - consumer-channel
+  - balance-sheet
+  - concession-cashflow
+  - platform-network
+industries:
+  - { id: cxo, name: CXO, sector: healthcare, primary_model: order-capex, status: pilot, path: healthcare/cxo }
+  - { id: vlcc, name: VLCC, sector: transportation, primary_model: capacity-cycle, status: pilot, path: transportation/oil-tankers/vlcc }
+  - { id: innovator-drugs, name: 创新药, sector: healthcare, primary_model: pipeline-rnpv, status: planned }
+  - { id: medical-devices, name: 医疗器械, sector: healthcare, primary_model: adoption-tech, status: planned }
+  - { id: gold, name: 黄金, sector: materials, primary_model: commodity-price, status: planned }
+  - { id: copper, name: 铜, sector: materials, primary_model: commodity-price, status: planned }
+  - { id: aluminum, name: 电解铝, sector: materials, primary_model: commodity-price, status: planned }
+  - { id: coal, name: 煤炭, sector: energy, primary_model: commodity-price, status: planned }
+  - { id: chemicals, name: 化工, sector: materials, primary_model: processing-spread, status: planned }
+  - { id: product-tankers, name: 成品油轮, sector: transportation, primary_model: capacity-cycle, status: planned }
+  - { id: dry-bulk, name: 干散货, sector: transportation, primary_model: capacity-cycle, status: planned }
+  - { id: semiconductor-equipment, name: 半导体设备, sector: technology, primary_model: order-capex, status: planned }
+  - { id: ai-compute, name: AI算力, sector: technology, primary_model: adoption-tech, status: planned }
+  - { id: aidd-tools, name: AIDD工具链, sector: healthcare, primary_model: order-capex, status: planned }
+  - { id: power-grid, name: 电网设备, sector: industrials, primary_model: order-capex, status: planned }
+  - { id: battery-storage, name: 储能, sector: industrials, primary_model: adoption-tech, status: planned }
+  - { id: baijiu, name: 白酒, sector: consumer, primary_model: consumer-channel, status: planned }
+  - { id: pig-farming, name: 生猪养殖, sector: agriculture, primary_model: commodity-price, status: planned }
+  - { id: banks, name: 银行, sector: financials, primary_model: balance-sheet, status: planned }
+  - { id: insurance, name: 保险, sector: financials, primary_model: balance-sheet, status: planned }
+  - { id: utilities-hydro, name: 水电, sector: utilities, primary_model: concession-cashflow, status: planned }
+  - { id: internet-platforms, name: 互联网平台, sector: technology, primary_model: platform-network, status: planned }

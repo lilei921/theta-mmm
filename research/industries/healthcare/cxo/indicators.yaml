@@ -1,0 +1,75 @@
+industry: cxo
+version: 1
+as_of: "2026-10-13"
+note: "指标定义，不包含未经核实的最新数值。lead_horizon均需通过历史样本检验。"
+indicators:
+  - id: cxo.biotech_funding
+    name: 全球Biotech融资额
+    layer: L1
+    unit: USD
+    frequency: quarterly
+    definition: 分VC/IPO/Follow-on/BD upfront统计，并与大型Pharma研发预算分别观察
+    mechanism: 资金可得性 -> 新项目/临床预算 -> 采购需求
+    lead_horizon: "情景假设，待验证"
+    source: "PitchBook/行业融资数据库；原始融资公告；大型药企财报"
+    limitations: "跨市场覆盖、融资用途、汇率和非现金BD对价差异"
+  - id: cxo.trial_starts
+    name: 新启动临床试验数
+    layer: L1
+    unit: count
+    frequency: monthly
+    definition: 按阶段/地区/药物类型去重，区分注册与实际启动
+    mechanism: 研发活动 -> Clinical CRO及后续CDMO潜在需求
+    lead_horizon: "待验证"
+    source: "ClinicalTrials.gov及区域临床试验登记平台"
+    limitations: "登记延迟，部分试验内部执行，不能等同外包订单"
+  - id: cxo.net_new_orders
+    name: 净新签订单
+    layer: L1
+    unit: reporting_currency
+    frequency: quarterly
+    definition: 公司披露口径；如可得需扣除取消、变更并剔除收购影响
+    mechanism: 新签订单 -> 未来交付及收入
+    lead_horizon: "按业务及合约期限验证"
+    source: "公司业绩公告及管理层指引"
+    limitations: "公司订单定义差异大，不能未经归一化横比"
+  - id: cxo.backlog
+    name: 在手订单与未来可执行金额
+    layer: L1
+    unit: reporting_currency
+    frequency: quarterly
+    definition: 区分总Backlog、预计未来12个月/36个月可执行部分
+    mechanism: 已获订单 -> 收入可见性
+    lead_horizon: "按预计执行期限分析"
+    source: "公司定期报告与业绩会"
+    limitations: "可能取消或延期，未必全部形成收入"
+  - id: cxo.late_stage_ppq
+    name: 后期/PPQ/商业化项目阶段迁移
+    layer: L1
+    unit: projects
+    frequency: semiannual
+    definition: 分Phase III、PPQ、BLA、Commercial计数；区分项目与批次数
+    mechanism: 项目成熟 -> 更大生产批量/商业化供应
+    lead_horizon: "高度依赖监管进度与客户成功率"
+    source: "公司公告、客户公告、监管数据库"
+    limitations: "PPQ不等于获批；BLA不等于商业销量；客户重复计数"
+  - id: cxo.utilization
+    name: 产能利用率与实验室人员效率
+    layer: L2
+    unit: percent
+    frequency: quarterly
+    definition: 分实验室、反应釜、生物反应器、产线/项目结构观察
+    mechanism: 吞吐量与固定成本摊薄 -> 毛利率
+    lead_horizon: "同步经营指标"
+    source: "公司定期报告及投资者交流"
+    limitations: "不同产能单位不可直接合并，实际披露可能缺失"
+  - id: cxo.gross_margin
+    name: 业务毛利率
+    layer: L3
+    unit: percent
+    frequency: quarterly
+    definition: 分部毛利率，跟踪汇率、折旧、价格和项目结构
+    mechanism: 盈利兑现验证
+    lead_horizon: "滞后披露"
+    source: "财务报告"
+    limitations: "并购、一次性项目、币种、会计处理影响可比性"

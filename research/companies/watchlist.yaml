@@ -1,0 +1,22 @@
+version: 1
+as_of: "2026-10-13"
+definition:
+  active: "用户明确要求持续/长期跟踪，不等于持仓"
+  core: "当前核心定期覆盖组"
+  focused: "其他明确长期跟踪"
+  related: "通过被跟踪公司的业务/持股关系关注，不自动成为独立长期跟踪"
+  historical_research: "曾经研究或讨论，未确认独立持续跟踪；不等于已经卖出"
+  inactive: "仅在用户明确停止长期跟踪时使用，并记退出日期与原因"
+active:
+  - { id: wuxi-apptec, name: 药明康德, symbols: [603259.SH, 2359.HK], priority: core, industries: [cxo] }
+  - { id: wuxi-biologics, name: 药明生物, symbols: [2269.HK], priority: core, industries: [cxo] }
+  - { id: wuxi-xdc, name: 药明合联, symbols: [2268.HK], priority: core, industries: [cxo] }
+  - { id: pharmaron, name: 康龙化成, symbols: [300759.SZ, 3759.HK], priority: core, industries: [cxo] }
+  - { id: asymchem, name: 凯莱英, symbols: [002821.SZ, 6821.HK], priority: core, industries: [cxo] }
+  - { id: innovent, name: 信达生物, symbols: [1801.HK], priority: focused, industries: [innovator-drugs] }
+  - { id: baili-pharm, name: 百利天恒, symbols: [688506.SH], priority: focused, industries: [innovator-drugs] }
+  - { id: kelun-pharm, name: 科伦药业, symbols: [002422.SZ], priority: focused, industries: [innovator-drugs] }
+  - { id: biocytogen, name: 百奥赛图, symbols: [688796.SH, 2315.HK], priority: focused, industries: [aidd-tools, innovator-drugs] }
+related:
+  - { id: kelun-biotech, name: 科伦博泰, symbols: [6990.HK], parent_watch: kelun-pharm, reason: "管线、BD、权益关系及估值传导" }
+archive_index: archive/historical-research-index.md
