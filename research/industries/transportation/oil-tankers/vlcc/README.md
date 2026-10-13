@@ -37,7 +37,7 @@
 
 - 中远海能、招商轮船：需要分别估算实际 VLCC 自有/租入、即期/期租敞口，以及 LNG 等其他业务。
 - 招商南油：主要是成品油/化学品油轮研究对象，**不能直接当作 VLCC 标的**。
-- 历史讨论过以上公司不代表它们已被确认为当前独立长期跟踪，见 [历史研究索引](../../../companies/archive/historical-research-index.md)。
+- 历史讨论过以上公司不代表它们已被确认为当前独立长期跟踪，见 [历史研究索引](../../../../companies/archive/historical-research-index.md)。
 
 ## 证伪清单
 
